@@ -1,0 +1,61 @@
+.section__content__preguntas{
+    position: relative;
+    overflow: hidden;
+    max-width: 960px;
+    margin-bottom: 64px;
+    padding: 0 16px;
+    @include mediaFrom(lg) {
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @include mediaFrom(xxl) {
+        max-width: 1248px;
+    }
+}
+.section__preguntas{
+    display: flex;
+    transition: transform 0.4s ease;
+    &__card{
+        text-align: center;
+        min-width: 100%;
+        padding: 20px;
+        box-shadow: 0 10px 10px rgba(0,0,0,.05);
+        @include mediaFrom(md) {
+            min-width: calc(100% / 3);
+        }
+        img {
+            margin-bottom: 32px;
+        }
+        h3{
+            font-weight: $font-bold;
+            margin-bottom: 16px;
+        }
+        p{
+            color: $colorTertiary;
+        }
+    
+    }
+    &__button--preview,
+    &__button--next{
+        
+        padding: 0;
+    }
+        
+    
+    &__button--preview:before,
+    &__button--next:before{
+        content: '';
+        display: block;
+        width: 48px;
+        height: 48px;
+        background-image: url('/assets/images/flecha.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }   
+    &__button--next:before{
+        transform: rotate(180deg);
+    }
+
+}
+

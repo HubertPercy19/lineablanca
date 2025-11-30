@@ -1,0 +1,98 @@
+.section__banner{
+    position: relative;
+    margin-top: 90px;
+    @include mediaFrom(lg) {
+        margin-top: 0;
+    }
+    img{
+        filter: brightness(.7);
+    }
+    &__information{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        padding: 0 25px;
+        transform: translate(-50%, -50%);
+        max-width: 600px;
+        z-index: 10;
+
+        @include mediaFrom(lg) {
+            left: 40%;
+            max-width: 750px;
+            padding: 0;
+        }
+        &__secondary{
+            @include mediaFrom(lg) {
+                left: 50%;
+                max-width: 650px;
+                padding: 0;
+            }
+        }
+        
+        h1{
+
+            font-size: 48px;
+            margin-bottom: 16px;
+            line-height: 1;
+            @include mediaFrom(lg) {
+                font-size: 70px;
+                margin-bottom: 16px;
+            }
+        }
+        h2{
+            margin-bottom: 16px;
+            color: $colorSecondary;
+            font-size: 18px;
+            @include mediaFrom(lg) {
+                font-size: 24px;
+                margin-bottom: 16px;
+            }
+        }
+        p{
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            color: rgb(255 255 255/80%);
+            @include mediaFrom(lg) {
+                font-size: 16px;
+                margin-bottom: 24px;
+            }
+        }
+        &__button{
+            display: flex;
+            flex-wrap: wrap;;
+            column-gap: 20px;
+        }
+        & &--title{
+            font-size: 36px;
+            margin-bottom: 32px;
+            line-height: 1;
+            font-weight: $font-bold;
+            @include mediaFrom(lg) {
+                font-size: 48px;
+            }
+        }
+        & &--text{
+            font-size: 18px;
+            @include mediaFrom(lg) {
+                font-size: 32px
+            }
+        }
+    }
+}
+.button-primary{
+    @include button-primary($color: $colorSecondary);
+}
+.button-secondary{
+    display: inline-block;
+    background-image: linear-gradient(to right, #0b58cb, #e94037, #0b58cb);
+    color: $colorSecondary;
+    font-size: 12px;
+    border-radius: 50px;
+    padding: 10px 16px;
+    @include mediaFrom(lg) {
+        padding: 20px 40px;
+        font-size: 16px;
+    }
+}

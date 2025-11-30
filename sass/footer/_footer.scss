@@ -1,0 +1,76 @@
+.content__footer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    &__information{
+        padding: 0;
+        width: 48%;
+        &:nth-child(3),
+        &:nth-child(4){
+            width: 100%;
+            @include mediaFrom(md) {
+                width: 48%;
+            }
+            @include mediaFrom(lg) {
+                width: 24%;
+            }
+        }
+        @include mediaFrom(lg) {
+            width: 24%;
+            margin-bottom: 16px;
+        }
+        &__title{
+            font-size: 16px;
+            margin-bottom: 16px;
+            font-weight: $font-bold;
+        }
+        &__text{
+            font-size: 14px;
+            color: $colorTertiary;
+            margin-bottom: 8px;
+        }
+        &__social{
+            display: flex;
+            column-gap: 16px;
+            margin-top: 16px;
+            img{
+                max-width: 24px;
+            }
+            
+        }
+        li{
+            margin-bottom: 8px;
+        }
+        
+        &__links{
+            font-size: 14px;
+            color: $colorTertiary;
+        }
+    }
+}
+
+.link-phone,
+.link-wasap,
+.link-gmail{
+    display: inline-block;
+    position: relative;
+    padding-left: 20px;
+    &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 16px;
+        height: 16px;
+    }
+}
+.link-phone::before{
+    background-image: url('/assets/images/telefono.png');
+}
+.link-wasap::before{
+    background-image: url('/assets/images/whatsapp.png');
+}
+.link-gmail::before{
+    background-image: url('/assets/images/gmail.png');
+}
