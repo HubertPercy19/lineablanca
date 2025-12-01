@@ -349,15 +349,15 @@ footer {
 }
 
 .link-phone::before {
-  background-image: url("/assets/images/telefono.png");
+  background-image: url("./assets/images/telefono.png");
 }
 
 .link-wasap::before {
-  background-image: url("/assets/images/whatsapp.png");
+  background-image: url("./assets/images/whatsapp.png");
 }
 
 .link-gmail::before {
-  background-image: url("/assets/images/gmail.png");
+  background-image: url("./assets/images/gmail.png");
 }
 
 .scrolled .nav {
@@ -814,7 +814,7 @@ svg .s2 {
   display: block;
   width: 48px;
   height: 48px;
-  background-image: url("/assets/images/flecha.png");
+  background-image: url("./assets/images/flecha.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
