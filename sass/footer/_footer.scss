@@ -23,6 +23,9 @@
             font-size: 16px;
             margin-bottom: 16px;
             font-weight: $font-bold;
+            @include mediaFrom(lg) {
+                font-size: 18px;
+            }
         }
         &__text{
             font-size: 14px;
@@ -45,6 +48,13 @@
         &__links{
             font-size: 14px;
             color: $colorTertiary;
+            transition: .5s ease-in-out;
+            
+            &:hover{
+                cursor: pointer;
+                color: $colorPrimary;
+                transition: .5s ease-in-out;
+            }
         }
     }
 }

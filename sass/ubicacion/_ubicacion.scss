@@ -39,13 +39,14 @@
         figcaption{
             position: absolute;
             overflow: hidden;
-            bottom: 20px;
-            left: 20px;
+            bottom: 40px;
+            left: 30px;
             background-color: $colorSecondary;
             text-align: center;
             padding: 15px;
             border-radius: 6px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: moverArribaAbajo 1s ease-in-out infinite alternate;
             span{
                 font-size: 72px;
                 font-weight: 700;

@@ -26,6 +26,9 @@
         }
         &__image{
             max-width: 80px;
+            img{
+                animation: moverArribaAbajo 1s ease-in-out infinite alternate;;
+            }
         }
         &__text{
             flex: 1;

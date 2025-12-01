@@ -56,10 +56,10 @@
             justify-content: center;
             width: 48%;
             padding: 40px 30px;
-            transition: .4s cubic-bezier(.12, 0, .39, 0);
+            transition: .5s ease-in-out;
             &:hover{
                 cursor: pointer;
-                transition: .4s cubic-bezier(.12, 0, .39, 0);
+                transition: .5s ease-in-out;
                 background-color: $colorQuaternary;
             }
             &:nth-child(odd){

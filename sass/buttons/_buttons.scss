@@ -1,0 +1,28 @@
+@mixin button-primary(
+    $color: $colorPrimary,
+    $font-size: 12px,
+    $font-weight: 500
+){
+    width: auto;
+    padding: 10px 16px;
+    border-radius: 50px;
+    display: inline-block;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: 1;
+    color: $color;
+    border: 1px solid;
+    transition: 0.5s ease-in-out;
+    @include mediaFrom(lg) {
+        padding: 20px 40px;
+        font-size: 16px;
+    }
+
+    &:hover,
+    &:focus{
+        text-decoration: none;
+        background-color: $colorSecondary;
+        transition: 0.5s ease-in-out;
+        color: $colorPrimary;
+    }
+}

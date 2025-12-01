@@ -24,34 +24,6 @@ $screen-xl-min  :  1280px;
 $screen-xxl-min :  1440px;
 $screen-hd-min  :  1920px;
 
-@mixin button-primary(
-    $color: $colorPrimary,
-    $font-size: 12px,
-    $font-weight: 500
-){
-    width: auto;
-    padding: 10px 16px;
-    border-radius: 50px;
-    display: inline-block;
-    font-size: $font-size;
-    font-weight: $font-weight;
-    line-height: 1;
-    color: $color;
-    border: 1px solid;
-    @include mediaFrom(lg) {
-        padding: 20px 40px;
-        font-size: 16px;
-    }
-
-    &:hover,
-    &:focus{
-        text-decoration: none;
-        background-color: $colorSecondary;
-        transition: 0.25s ease-in-out;
-        color: $colorPrimary;
-    }
-}
-
 @mixin mediaFrom($size) {
   @media (min-width: map-get($breakpoints, $size)) {
     @content;
@@ -143,10 +115,7 @@ section{
         @include mediaFrom(lg) {
             max-width: 100%;
         }
-    }
-    &__content{
-        background-color: red;
-    }
+    }    
 }
 
 footer{
