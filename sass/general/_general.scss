@@ -132,7 +132,7 @@ button{
     & svg{
         width: 100%;
     }
-    &-svg{
+    & &-svg{
         fill: $colorPrimary;
         &-wasap{
             fill: #25d366;
