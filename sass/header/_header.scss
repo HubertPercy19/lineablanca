@@ -4,22 +4,25 @@
 .nav__content__cintillo{
     display: flex;
     flex-direction: column;
+    background-color: $colorPrimary;
     @include mediaFrom(lg) {
         flex-flow: row wrap;
         justify-content: space-around;
         align-items: center;
+        background-color: transparent;
+        padding: 8px 0;
     }
 }
 .nav__cintillo {
     display: flex;
     justify-content: space-around;
     column-gap: 2px;
-    background-color: $colorPrimary;
+    
     padding: 8px;
     transition: .25s ease-in-out;
     @include mediaFrom(lg) {
         column-gap: 20px;
-        background-color: transparent;
+        
     }
     .scrolled &{
         background-color: $colorSecondary;
@@ -68,7 +71,10 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 16px 0;
+    padding: 8px 0;
+    @include mediaFrom(lg) {
+        padding: 0 0 16px 0;
+    }
 
 }
 .nav {
@@ -87,7 +93,7 @@
     }
     @include mediaFrom(lg) {
         background-color: transparent;
-        padding: 16px;
+        padding: 0 16px;
     }
 
     &__logo {

@@ -443,6 +443,7 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #252840;
 }
 @media (min-width: 1024px) {
   .nav__content__cintillo {
@@ -455,6 +456,8 @@ footer {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    background-color: transparent;
+    padding: 8px 0;
   }
 }
 
@@ -467,7 +470,6 @@ footer {
   -webkit-column-gap: 2px;
      -moz-column-gap: 2px;
           column-gap: 2px;
-  background-color: #252840;
   padding: 8px;
   -webkit-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
@@ -477,7 +479,6 @@ footer {
     -webkit-column-gap: 20px;
        -moz-column-gap: 20px;
             column-gap: 20px;
-    background-color: transparent;
   }
 }
 .scrolled .nav__cintillo {
@@ -550,7 +551,12 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  padding: 16px 0;
+  padding: 8px 0;
+}
+@media (min-width: 1024px) {
+  .nav_content {
+    padding: 0 0 16px 0;
+  }
 }
 
 .nav {
@@ -578,7 +584,7 @@ footer {
 @media (min-width: 1024px) {
   .nav {
     background-color: transparent;
-    padding: 16px;
+    padding: 0 16px;
   }
 }
 .nav__logo {
