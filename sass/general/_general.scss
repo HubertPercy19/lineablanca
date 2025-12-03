@@ -97,6 +97,48 @@ button{
     background-color: transparent;
     border: 0;
 }
+.button-float{
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    z-index: 100;
+    & a {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        padding: 8px;
+        background-color: $colorSecondary;
+        border-radius: 100%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        @include mediaFrom(md) {
+            width: 50px;
+            height: 50px;
+        }
+        &:hover{
+            background-color: $colorPrimary;
+            .button-float-svg-cel,
+            .button-float-svg-phone{
+                fill: $colorSecondary;
+                
+            }
+            .button-float-svg-wasap{
+                fill: $colorSecondary;
+            }
+        }
+    }
+    & svg{
+        width: 100%;
+    }
+    &-svg{
+        fill: $colorPrimary;
+        &-wasap{
+            fill: #25d366;
+        }
+    }
+}
 section{
     padding: 0 16px;
     margin-bottom: 48px;

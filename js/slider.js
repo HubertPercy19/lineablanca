@@ -2,25 +2,16 @@ export const initSlider = () => {
     const sliderContent = document.querySelector('.slider-track');
     const buttonNext = document.querySelector('.slider-next');
     const buttonPreview = document.querySelector('.slider-prev');
+    const slidesPerView = window.innerWidth >= 768 ? 3 : 1;
     let slideItem = document.querySelectorAll('.slides');
-    let index = 1;
-    let speed = 30000;
+    let index = slidesPerView;
+    let speed = 3000;
     let intervalID = null;
     let isMoving = false;
 
     function getWidthSlide() {
-        const slidesPerView = window.innerWidth >= 768 ? 3 : 1;
         return sliderContent.clientWidth / slidesPerView;
     }
-
-    /*
-    const firstClone = slideItem[0].cloneNode(true);
-    const lastClone = slideItem[slideItem.length -1].cloneNode(true);
-
-    sliderContent.prepend(lastClone);
-    sliderContent.append(firstClone);
-    */
-   const slidesPerView = window.innerWidth >= 768 ? 3 : 1;
 
     // Crear clones según la cantidad visible
     for (let i = 0; i < slidesPerView; i++) {
@@ -33,19 +24,18 @@ export const initSlider = () => {
 
     slideItem = document.querySelectorAll('.slides');
 
-    if ( window.innerWidth <= 768) {
-        sliderContent.style.transform = `translateX(-${getWidthSlide() * index}px)`;
-    }
+    sliderContent.style.transform = `translateX(-${getWidthSlide() * index}px)`;
+
     
 
     const startAutoPlay = () => {
         if (intervalID) clearInterval(intervalID);
- 
+        
         intervalID = setInterval(() => {
             if (isMoving) return;
             isMoving = true;
-
-            index ++;
+           
+            index += slidesPerView;
             sliderContent.style.transition = "transform .4s ease";
             sliderContent.style.transform = `translateX(-${getWidthSlide() * index }px)`;
         }, speed);
@@ -57,7 +47,7 @@ export const initSlider = () => {
     };
 
     startAutoPlay();
-
+    /*
     sliderContent.addEventListener("transitionend", () => {
        
         isMoving = false;
@@ -74,6 +64,25 @@ export const initSlider = () => {
             sliderContent.style.transform = `translateX(-${getWidthSlide() * index }px)`;
         }
     });
+    */
+    sliderContent.addEventListener("transitionend", () => {
+        isMoving = false;
+
+        const total = slideItem.length;
+        console.log(`index : ${index} total : ${total} view :${slidesPerView}`)
+
+        if (index >= total - slidesPerView) {
+            index = slidesPerView;
+            sliderContent.style.transition = "none";
+            sliderContent.style.transform = `translateX(-${getWidthSlide() * index}px)`;
+        }
+
+        if (index < slidesPerView) {
+            index = total - slidesPerView * 2;
+            sliderContent.style.transition = "none";
+            sliderContent.style.transform = `translateX(-${getWidthSlide() * index}px)`;
+        }
+    });
 
     if (buttonNext) {
         buttonNext.addEventListener("click", () => {
@@ -81,7 +90,7 @@ export const initSlider = () => {
             isMoving = true;
 
             stopAutoPlay();
-            index++;
+            index += slidesPerView;
             sliderContent.style.transition = "transform .4s ease";
             sliderContent.style.transform = `translateX(-${getWidthSlide() * index }px)`;
             startAutoPlay();
@@ -94,7 +103,7 @@ export const initSlider = () => {
             isMoving = true;
 
             stopAutoPlay();
-            index--;
+            index -= slidesPerView;
             sliderContent.style.transition = "transform .4s ease";
             sliderContent.style.transform = `translateX(-${getWidthSlide() * index }px)`;
             startAutoPlay();

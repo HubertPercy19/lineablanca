@@ -80,6 +80,57 @@ button {
   border: 0;
 }
 
+.button-float {
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+  z-index: 100;
+}
+.button-float a {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  padding: 8px;
+  background-color: #ffffff;
+  border-radius: 100%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+@media (min-width: 768px) {
+  .button-float a {
+    width: 50px;
+    height: 50px;
+  }
+}
+.button-float a:hover {
+  background-color: #252840;
+}
+.button-float a:hover .button-float-svg-cel,
+.button-float a:hover .button-float-svg-phone {
+  fill: #ffffff;
+}
+.button-float a:hover .button-float-svg-wasap {
+  fill: #ffffff;
+}
+.button-float svg {
+  width: 100%;
+}
+.button-float-svg {
+  fill: #252840;
+}
+.button-float-svg-wasap {
+  fill: #25d366;
+}
+
 section {
   padding: 0 16px;
   margin-bottom: 48px;
@@ -441,7 +492,6 @@ footer {
   }
 }
 .nav__button__message {
-  display: none;
   width: auto;
   padding: 10px 16px;
   border-radius: 50px;
@@ -453,6 +503,7 @@ footer {
   border: 1px solid;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
+  display: none;
   margin-right: 16px;
 }
 @media (min-width: 1024px) {

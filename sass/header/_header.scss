@@ -45,8 +45,9 @@
             display: none;
         }
         &__message{
-            display: none;
+            
             @include button-primary($color: $colorSecondary);
+            display: none;
             margin-right: 16px;
             @include mediaFrom(lg) {
                 display: flex;

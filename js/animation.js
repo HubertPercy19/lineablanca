@@ -23,7 +23,7 @@ export const  scrollAnimationSection = () => {
         }
     });
     }, {
-    threshold: 0.5 // porcentaje que debe entrar en pantalla
+    threshold: 0.25 // porcentaje que debe entrar en pantalla
     });
 
     elementos.forEach(el => observer.observe(el));
