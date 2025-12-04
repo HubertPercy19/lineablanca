@@ -27,6 +27,9 @@
     .scrolled &{
         background-color: $colorSecondary;
         transition: .25s ease-in-out;
+        @include mediaFrom(lg){
+            background-color: transparent;
+        }
     }
     &:nth-child(1){
         flex-wrap: wrap;
