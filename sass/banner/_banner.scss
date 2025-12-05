@@ -1,31 +1,40 @@
 .section__banner{
     position: relative;
-    margin-top: 90px;
+    margin-top: 172px;
     @include mediaFrom(lg) {
         margin-top: 0;
     }
-    img{
-        filter: brightness(.7);
+    picture{
+        display: flex;
     }
+    & img{
+            filter: brightness(.8);
+        }
     &__information{
         position: absolute;
         top: 50%;
         left: 50%;
         width: 100%;
-        padding: 0 25px;
+        padding: 0 16px;
         transform: translate(-50%, -50%);
         max-width: 600px;
         z-index: 10;
 
         @include mediaFrom(lg) {
             left: 40%;
+            top: 60%;
             max-width: 750px;
             padding: 0;
         }
+        @include mediaFrom(xl) {
+            top: 50%;
+        }
         &__secondary{
+            top: 50%;
             @include mediaFrom(lg) {
                 left: 50%;
-                max-width: 650px;
+                top: 50%;
+                max-width: 60%;
                 padding: 0;
             }
         }
@@ -33,34 +42,45 @@
         h1{
 
             font-size: 48px;
-            margin-bottom: 16px;
+            margin: 16px 0;
             line-height: 1;
             animation: fadeIn .25s ease-in-out;
             @include mediaFrom(lg) {
                 font-size: 70px;
-                margin-bottom: 16px;
             }
         }
         h2{
             margin-bottom: 16px;
             color: $colorSecondary;
             font-size: 18px;
+            line-height: 1.5;
             animation: fadeIn .75s ease-in-out;
             @include mediaFrom(lg) {
                 font-size: 24px;
-                margin-bottom: 16px;
             }
         }
         p{
             font-size: 14px;
-            line-height: 1.5;
-            margin-bottom: 16px;
+            line-height: 1.75;
+            margin-bottom: 24px;
             color: rgb(255 255 255/80%);
             animation: fadeIn 1.25s ease-in-out;
             @include mediaFrom(lg) {
                 font-size: 16px;
-                margin-bottom: 24px;
             }
+        }
+        span{
+            display: inline-flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            column-gap: 8px;
+            border-radius: 32px;
+            font-size: 12px;
+            text-transform: uppercase;
+            justify-content: center;
+            padding: 8px 16px;
+            color: $colorSecondary;
+            background: linear-gradient(to right, rgba(24, 25, 28, .5), rgba(255, 255, 255, 0.0));
         }
         &__button{
             display: flex;
@@ -69,12 +89,14 @@
             
         }
         & &--title{
-            font-size: 36px;
-            margin-bottom: 32px;
+            font-size: 48px;
+            margin: 32px 0;
             line-height: 1;
-            font-weight: $font-bold;
+            font-weight: $font-semibold;
+            text-align: center;
+            letter-spacing: -2px;
             @include mediaFrom(lg) {
-                font-size: 48px;
+                font-size: 70px;
             }
         }
         & &--text{
@@ -82,6 +104,22 @@
             @include mediaFrom(lg) {
                 font-size: 32px
             }
+        }
+    }
+}
+.section__content__banner{
+    picture{
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $colorPrimary;
+            opacity: .5;
+            pointer-events: none; /* evita que afecte interacciones */
+            z-index: 1;
         }
     }
 }

@@ -44,3 +44,36 @@
     }
     
 }
+
+.section__images__content{
+    display: flex;
+    flex-direction: column;
+    @include mediaFrom(lg) {
+        flex-direction: row;
+    }
+    & div{
+        display: flex;
+        border-radius: 32px;
+        overflow: hidden;
+    }
+    img {
+        border-radius: 32px;
+        transition: .4s cubic-bezier(.165, .84, .44, 1);
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.1);
+            transition: .4s cubic-bezier(.165, .84, .44, 1);
+        }
+    }
+    
+
+    &__first{
+        display: flex;
+        column-gap: 32px;
+    }
+
+    &__second{
+        display: flex;
+        column-gap: 64px;
+    }
+}

@@ -10,19 +10,17 @@
         justify-content: space-around;
         align-items: center;
         background-color: transparent;
-        padding: 8px 0;
+        padding: 8px 0 0 0;
     }
 }
 .nav__cintillo {
     display: flex;
     justify-content: space-around;
     column-gap: 2px;
-    
-    padding: 8px;
+    padding: 0 8px 8px 8px;
     transition: .25s ease-in-out;
     @include mediaFrom(lg) {
         column-gap: 20px;
-        
     }
     .scrolled &{
         background-color: $colorSecondary;
@@ -34,6 +32,7 @@
     &:nth-child(1){
         flex-wrap: wrap;
         justify-content: center;
+        padding: 8px;
         column-gap: 10px;
     }
     & p {
@@ -102,6 +101,46 @@
     &__logo {
         display: inline-block;
         margin-left: 16px;
+        &__image{
+            width: 72px;
+            height: 72px;
+            display: block;
+            @include mediaFrom(lg) {
+                display: none;
+            }
+            @include mediaFrom(xl) {
+                width: 80px;
+                height: 80px;
+            }
+            @include mediaFrom(xxl) {
+                width: 96px;
+                height: 96px;
+            }
+    
+            .scrolled & {
+                display: block;
+            }
+        }
+        & svg{
+            display: none;
+            .scrolled & {
+                display: none;
+            }
+            width: 72px;
+            height: 72px;
+            @include mediaFrom(lg) {
+                display: block;
+            }
+            @include mediaFrom(xl) {
+                width: 80px;
+                height: 80px;
+            }
+            @include mediaFrom(xxl) {
+                width: 96px;
+                height: 96px;
+            }
+
+        }
     }
 
     &-button-message {
@@ -117,7 +156,6 @@
             display: none;
         }
         &__message{
-            
             @include button-primary($color: $colorSecondary);
             display: none;
             margin-right: 16px;
