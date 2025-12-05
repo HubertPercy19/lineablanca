@@ -3,3 +3,4 @@
 # General Settings
 prepros.config
 sass
+node_modules

@@ -12,3 +12,4 @@ document.addEventListener("DOMContentLoaded", () => {
     // Aquí ya puedes acceder a tus elementos del HTML
 });
 
+

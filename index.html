@@ -447,18 +447,19 @@
         <section class="section__content__contact">
             <h2 class="section__contact__title">¿Buscas ayuda?</h2>
             <div class="section__contact">
-                <form action="email-templates/contact-form.php" method="post">
+                <form action="/api/send">
+                    <input type="hidden" name="access_key" value="1eb4a8cf-9aff-4f9a-af50-3eb6fe46b4bd">
                     <div class="section__contact__field">
                         <label for="exampleInputEmail1">Nombre*</label>
-                        <input id="exampleInputEmail1" type="text" name="name" placeholder="Ingresa tu nombre">
+                        <input type="text" name="name" required>
                     </div>
                     <div class="section__contact__field">
                         <label for="exampleInputEmail1">Email*</label>
-                        <input id="exampleInputEmail2" type="email" name="email" placeholder="Ingresa tu email">
+                        <input type="email" name="email" required>
                     </div>
                     <div class="section__contact__field">
                         <label for="exampleInputEmail1">Mensaje*</label>
-                        <textarea class="fs-15 ps-0 border-radius-0px border-color-dark-gray bg-transparent form-control" name="comment" placeholder="Describe tu requerimiento" rows="3"></textarea>
+                        <textarea name="message" rows="3" required></textarea>
                     </div>
                     
                     <div class="section__contact__field">

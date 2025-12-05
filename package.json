@@ -1,0 +1,24 @@
+{
+  "name": "pagesweb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HubertPercy19/lineablanca.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HubertPercy19/lineablanca/issues"
+  },
+  "homepage": "https://github.com/HubertPercy19/lineablanca#readme",
+  "dependencies": {
+    "resend": "^6.5.2"
+  }
+}
