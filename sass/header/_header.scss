@@ -161,15 +161,22 @@
             margin-right: 16px;
             @include mediaFrom(lg) {
                 display: flex;
-                align-items: center;
-                padding: 10px 20px;
-            
+                align-items: center;            
+            }
+            .scrolled & {
+                color: $colorPrimary;
+                &:hover{
+                    background-color: $colorPrimary;
+                    color: $colorSecondary;
+                }
             }
             &:hover{
-                cursor: pointer;
-                transition: 0.25s ease-in-out;
                 background-color: $colorSecondary;
                 color: $colorPrimary;
+            }
+            & svg{
+                width: 16px;
+                margin-left: 10px;
             }
         }
         &__bar {
