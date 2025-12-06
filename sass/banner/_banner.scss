@@ -38,37 +38,6 @@
                 padding: 0;
             }
         }
-        
-        h1{
-
-            font-size: 48px;
-            margin: 16px 0;
-            line-height: 1;
-            animation: fadeIn .25s ease-in-out;
-            @include mediaFrom(lg) {
-                font-size: 70px;
-            }
-        }
-        h2{
-            margin-bottom: 16px;
-            color: $colorSecondary;
-            font-size: 18px;
-            line-height: 1.5;
-            animation: fadeIn .75s ease-in-out;
-            @include mediaFrom(lg) {
-                font-size: 24px;
-            }
-        }
-        p{
-            font-size: 14px;
-            line-height: 1.75;
-            margin-bottom: 24px;
-            color: rgb(255 255 255/80%);
-            animation: fadeIn 1.25s ease-in-out;
-            @include mediaFrom(lg) {
-                font-size: 16px;
-            }
-        }
         span{
             display: inline-flex;
             align-items: center;
@@ -81,6 +50,37 @@
             padding: 8px 16px;
             color: $colorSecondary;
             background: linear-gradient(to right, rgba(24, 25, 28, .5), rgba(255, 255, 255, 0.0));
+            animation: slideTop .75s ease-in-out;
+        }
+        h1{
+
+            font-size: 48px;
+            margin: 16px 0;
+            line-height: 1;
+            animation: slideTop 1.25s ease-in-out;
+            @include mediaFrom(lg) {
+                font-size: 70px;
+            }
+        }
+        h2{
+            margin-bottom: 16px;
+            color: $colorSecondary;
+            font-size: 18px;
+            line-height: 1.5;
+            animation: slideTop 1.75s ease-in-out;
+            @include mediaFrom(lg) {
+                font-size: 24px;
+            }
+        }
+        p{
+            font-size: 14px;
+            line-height: 1.75;
+            margin-bottom: 24px;
+            color: rgb(255 255 255/80%);
+            animation: slideTop 2.25s ease-in-out;
+            @include mediaFrom(lg) {
+                font-size: 16px;
+            }
         }
         &__button{
             display: flex;
@@ -125,7 +125,7 @@
 }
 .button-primary{
     @include button-primary($color: $colorSecondary);
-    animation: fadeIn 1.75s ease-in-out;
+    animation: slideTop 1.75s ease-in-out;
 }
 .button-secondary{
     display: inline-block;
