@@ -255,15 +255,15 @@ footer {
   color: #ffffff;
   background: -webkit-gradient(linear, left top, right top, from(rgba(24, 25, 28, 0.5)), to(rgba(255, 255, 255, 0)));
   background: linear-gradient(to right, rgba(24, 25, 28, 0.5), rgba(255, 255, 255, 0));
-  -webkit-animation: slideTop 0.75s ease-in-out;
-          animation: slideTop 0.75s ease-in-out;
+  -webkit-animation: slideTop 0.5s ease-out forwards;
+          animation: slideTop 0.5s ease-out forwards;
 }
 .section__banner__information h1 {
   font-size: 48px;
   margin: 16px 0;
   line-height: 1;
-  -webkit-animation: slideTop 1.25s ease-in-out;
-          animation: slideTop 1.25s ease-in-out;
+  -webkit-animation: slideTop 1s ease-out forwards;
+          animation: slideTop 1s ease-out forwards;
 }
 @media (min-width: 1024px) {
   .section__banner__information h1 {
@@ -275,8 +275,8 @@ footer {
   color: #ffffff;
   font-size: 18px;
   line-height: 1.5;
-  -webkit-animation: slideTop 1.75s ease-in-out;
-          animation: slideTop 1.75s ease-in-out;
+  -webkit-animation: slideTop 1.5s ease-out forwards;
+          animation: slideTop 1.5s ease-out forwards;
 }
 @media (min-width: 1024px) {
   .section__banner__information h2 {
@@ -288,8 +288,8 @@ footer {
   line-height: 1.75;
   margin-bottom: 24px;
   color: rgba(255, 255, 255, 0.8);
-  -webkit-animation: slideTop 2.25s ease-in-out;
-          animation: slideTop 2.25s ease-in-out;
+  -webkit-animation: slideTop 2s ease-out forwards;
+          animation: slideTop 2s ease-out forwards;
 }
 @media (min-width: 1024px) {
   .section__banner__information p {
@@ -353,8 +353,8 @@ footer {
   border: 1px solid;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
-  -webkit-animation: slideTop 1.75s ease-in-out;
-          animation: slideTop 1.75s ease-in-out;
+  -webkit-animation: slideTop 2.5s ease-out forwards;
+          animation: slideTop 2.5s ease-out forwards;
 }
 @media (min-width: 1024px) {
   .button-primary {
@@ -1484,31 +1484,43 @@ svg .s2 {
 .section__experience__image figcaption {
   position: absolute;
   overflow: hidden;
-  bottom: 40px;
-  left: 30px;
+  bottom: 25px;
+  left: 10px;
   background-color: #ffffff;
   text-align: center;
-  padding: 15px;
+  padding: 6px;
   border-radius: 6px;
   -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   -webkit-animation: moverArribaAbajo 1s ease-in-out infinite alternate;
           animation: moverArribaAbajo 1s ease-in-out infinite alternate;
 }
+@media (min-width: 768px) {
+  .section__experience__image figcaption {
+    padding: 12px;
+    bottom: 40px;
+    left: 30px;
+  }
+}
 .section__experience__image figcaption span {
-  font-size: 72px;
+  font-size: 48px;
   font-weight: 700;
   color: #ffffff;
   display: block;
   position: relative;
   z-index: 1;
 }
+@media (min-width: 768px) {
+  .section__experience__image figcaption span {
+    font-size: 60px;
+  }
+}
 .section__experience__image figcaption p {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 12px;
 }
 .section__experience__image figcaption div {
-  height: 160px;
+  height: 140px;
   width: 160px;
   border-radius: 100%;
   background-color: #074eb9;
@@ -1516,6 +1528,11 @@ svg .s2 {
   right: 0;
   top: -70px;
   z-index: 0;
+}
+@media (min-width: 768px) {
+  .section__experience__image figcaption div {
+    height: 10px;
+  }
 }
 
 .section__store {
@@ -1661,48 +1678,44 @@ textarea:focus {
   }
 }
 @-webkit-keyframes scale {
-  from {
-    display: none;
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
   to {
-    display: block;
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    opacity: 1;
   }
 }
 @keyframes scale {
-  from {
-    display: none;
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
   to {
-    display: block;
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    opacity: 1;
   }
 }
 @-webkit-keyframes slideTop {
-  from {
+  0% {
     opacity: 0;
     -webkit-transform: translateY(-40px);
             transform: translateY(-40px);
   }
-  to {
+  50% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
     opacity: 1;
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
 }
 @keyframes slideTop {
-  from {
+  0% {
     opacity: 0;
     -webkit-transform: translateY(-40px);
             transform: translateY(-40px);
   }
-  to {
+  50% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
     opacity: 1;
     -webkit-transform: translateY(0);
             transform: translateY(0);
@@ -1734,16 +1747,10 @@ textarea:focus {
 }
 .scroll-anim {
   opacity: 0;
-  -webkit-transform: translateY(40px);
-          transform: translateY(40px);
-  -webkit-transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
-  transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  transition: opacity 0.6s ease, transform 0.6s ease, -webkit-transform 0.6s ease;
 }
 
 .scroll-anim.show {
   opacity: 1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+  -webkit-animation: slideTop 0.5s ease-out forwards;
+          animation: slideTop 0.5s ease-out forwards;
 }

@@ -39,29 +39,37 @@
         figcaption{
             position: absolute;
             overflow: hidden;
-            bottom: 40px;
-            left: 30px;
+            bottom: 25px;
+            left: 10px;
             background-color: $colorSecondary;
             text-align: center;
-            padding: 15px;
+            padding: 6px;
             border-radius: 6px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             animation: moverArribaAbajo 1s ease-in-out infinite alternate;
+            @include mediaFrom(md) {
+                padding: 12px;
+                bottom: 40px;
+                left: 30px;
+            }
             span{
-                font-size: 72px;
+                font-size: 48px;
                 font-weight: 700;
                 color: $colorSecondary;
                 display: block;
                 position: relative;
                 z-index: 1;
+                @include mediaFrom(md) {
+                    font-size: 60px;
+                }
             }
             p{
                 font-weight: 500;
-                font-size: 16px;
+                font-size: 12px;
              
             }
             div{
-                height: 160px;
+                height: 140px;
                 width: 160px;
                 border-radius: 100%;
                 background-color: $colorQuaternary;
@@ -69,6 +77,9 @@
                 right: 0;
                 top: -70px;
                 z-index: 0;
+                @include mediaFrom(md) {
+                    height: 10px;
+                }
             }
         }
     }

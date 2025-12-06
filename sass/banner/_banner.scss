@@ -50,14 +50,15 @@
             padding: 8px 16px;
             color: $colorSecondary;
             background: linear-gradient(to right, rgba(24, 25, 28, .5), rgba(255, 255, 255, 0.0));
-            animation: slideTop .75s ease-in-out;
+            animation: slideTop .5s ease-out forwards;
         }
         h1{
 
             font-size: 48px;
             margin: 16px 0;
             line-height: 1;
-            animation: slideTop 1.25s ease-in-out;
+            animation: slideTop 1s ease-out forwards;
+   
             @include mediaFrom(lg) {
                 font-size: 70px;
             }
@@ -67,7 +68,7 @@
             color: $colorSecondary;
             font-size: 18px;
             line-height: 1.5;
-            animation: slideTop 1.75s ease-in-out;
+            animation: slideTop 1.5s ease-out forwards;
             @include mediaFrom(lg) {
                 font-size: 24px;
             }
@@ -77,7 +78,7 @@
             line-height: 1.75;
             margin-bottom: 24px;
             color: rgb(255 255 255/80%);
-            animation: slideTop 2.25s ease-in-out;
+            animation: slideTop 2s ease-out forwards;
             @include mediaFrom(lg) {
                 font-size: 16px;
             }
@@ -125,7 +126,7 @@
 }
 .button-primary{
     @include button-primary($color: $colorSecondary);
-    animation: slideTop 1.75s ease-in-out;
+    animation: slideTop 2.5s ease-out forwards;
 }
 .button-secondary{
     display: inline-block;
