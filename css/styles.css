@@ -1531,7 +1531,7 @@ svg .s2 {
 }
 @media (min-width: 768px) {
   .section__experience__image figcaption div {
-    height: 10px;
+    height: 160px;
   }
 }
 
