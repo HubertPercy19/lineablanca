@@ -2,7 +2,7 @@ export const initSlider = () => {
     const sliderContent = document.querySelector('.slider-track');
     const buttonNext = document.querySelector('.slider-next');
     const buttonPreview = document.querySelector('.slider-prev');
-    const slidesPerView = window.innerWidth >= 768 ? 3 : 1;
+    let slidesPerView = window.innerWidth >= 768 ? 3 : 1;
     let slideItem = document.querySelectorAll('.slides');
     let index = slidesPerView;
     let speed = 3000;
@@ -119,4 +119,31 @@ export const initSlider = () => {
             startAutoPlay();
         }
     });
+
+    window.addEventListener("resize", () => {
+        stopAutoPlay();
+
+        // Recalcular slidesPerView según el nuevo viewport
+        const newSlidesPerView = window.innerWidth >= 768 ? 3 : 1;
+
+        // Si cambió, hay que reajustar todo
+        if (newSlidesPerView !== slidesPerView) {
+            // Actualizar valor
+            slidesPerView = newSlidesPerView;
+
+            // Recalcular ancho
+            const width = getWidthSlide();
+
+            // Recalcular index para que quede alineado
+            index = slidesPerView;
+
+            // Quitar transición para evitar saltos visibles
+            sliderContent.style.transition = "none";
+            sliderContent.style.transform = `translateX(-${width * index}px)`;
+        }
+
+        // Reiniciar autoplay
+        startAutoPlay();
+    });
+
 };
