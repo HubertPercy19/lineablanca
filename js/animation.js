@@ -1,4 +1,4 @@
-export const scrollAnimationHeader = () => {
+const scrollAnimationHeader = () => {
     const header = document.querySelector('header');
 
     window.addEventListener('scroll', () => {
@@ -11,7 +11,7 @@ export const scrollAnimationHeader = () => {
     });
 }
 
-export const  scrollAnimationSection = () => {
+const  scrollAnimationSection = () => {
     const elementos = document.querySelectorAll('.scroll-anim');
 
     const observer = new IntersectionObserver((entries) => {

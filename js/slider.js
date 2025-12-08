@@ -1,4 +1,4 @@
-export const initSlider = () => {
+const initSlider = () => {
     const sliderContent = document.querySelector('.slider-track');
     const buttonNext = document.querySelector('.slider-next');
     const buttonPreview = document.querySelector('.slider-prev');
