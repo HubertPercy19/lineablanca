@@ -1,3 +1,24 @@
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../../assets/fonts/PlusJakartaSans-Regular.woff2") format("woff2"), url("../../assets/fonts/PlusJakartaSans-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../../assets/fonts/PlusJakartaSans-Medium.woff2") format("woff2"), url("../../assets/fonts/PlusJakartaSans-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../../assets/fonts/PlusJakartaSans-Bold.woff2") format("woff2"), url("../../assets/fonts/PlusJakartaSans-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -310,7 +331,7 @@ footer {
   font-size: 48px;
   margin: 32px 0;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   letter-spacing: -2px;
 }
