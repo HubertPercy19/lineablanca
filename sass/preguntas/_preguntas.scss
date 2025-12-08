@@ -19,7 +19,9 @@
 }
 .section__preguntas{
     display: flex;
-    transition: transform .4s ease;
+    transition: transform .6s cubic-bezier(0.19, 1, 0.22, 1);
+    transform-style: preserve-3d;
+    will-change: transform;
     @include mediaFrom(md) {
         justify-content: center;
     }

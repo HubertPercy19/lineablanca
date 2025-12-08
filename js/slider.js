@@ -2,8 +2,10 @@ export const initSlider = () => {
     const sliderContent = document.querySelector('.slider-track');
     const buttonNext = document.querySelector('.slider-next');
     const buttonPreview = document.querySelector('.slider-prev');
+
     let slidesPerView = window.innerWidth >= 768 ? 3 : 1;
-    let slideItem = document.querySelectorAll('.slides');
+    let originalSlides = [...document.querySelectorAll('.slides')];
+    let slideItem = [];
     let index = slidesPerView;
     let speed = 3000;
     let intervalID = null;
@@ -13,31 +15,52 @@ export const initSlider = () => {
         return sliderContent.clientWidth / slidesPerView;
     }
 
-    // Crear clones según la cantidad visible
-    for (let i = 0; i < slidesPerView; i++) {
-        const firstClone = slideItem[i].cloneNode(true);
-        const lastClone = slideItem[slideItem.length - 1 - i].cloneNode(true);
+    // ------------------------------
+    // 🔁 CREAR CLONES
+    // ------------------------------
+    function createClones() {
+        sliderContent.innerHTML = ""; // limpiar
+       
+        // agregar clones al inicio
+        for (let i = slidesPerView; i > 0; i--) {
+            const clone = originalSlides[originalSlides.length - i].cloneNode(true);
+            sliderContent.appendChild(clone);
+        }
 
-        sliderContent.append(firstClone);
-        sliderContent.prepend(lastClone);
+        // agregar slides originales
+        originalSlides.forEach(s => sliderContent.appendChild(s.cloneNode(true)));
+
+        // agregar clones al final
+        for (let i = 0; i < slidesPerView; i++) {
+            const clone = originalSlides[i].cloneNode(true);
+            sliderContent.appendChild(clone);
+        }
+
+        slideItem = sliderContent.querySelectorAll(".slides");
     }
 
-    slideItem = document.querySelectorAll('.slides');
+    // ------------------------------
+    // 🔁 POSICIONAR INICIAL
+    // ------------------------------
+    function resetPosition() {
+        index = slidesPerView;
+        sliderContent.style.transition = "none";
+        sliderContent.style.transform = `translateX(-${getWidthSlide() * index}px)`;
+    }
 
-    sliderContent.style.transform = `translateX(-${getWidthSlide() * index}px)`;
-
-    
-
+    // ------------------------------
+    // ▶️ AUTO PLAY
+    // ------------------------------
     const startAutoPlay = () => {
         if (intervalID) clearInterval(intervalID);
-        
+
         intervalID = setInterval(() => {
             if (isMoving) return;
             isMoving = true;
-           
+
             index += slidesPerView;
-            sliderContent.style.transition = "transform .4s ease";
-            sliderContent.style.transform = `translateX(-${getWidthSlide() * index }px)`;
+            sliderContent.style.transition = "transform .7s cubic-bezier(0.83, 0, 0.17, 1)";
+            sliderContent.style.transform = `translateX(-${getWidthSlide() * index}px)`;
         }, speed);
     };
 
@@ -46,35 +69,22 @@ export const initSlider = () => {
         intervalID = null;
     };
 
+    // ------------------------------
+    // 🔁 INICIO
+    // ------------------------------
+    createClones();
+    resetPosition();
     startAutoPlay();
-    /*
-    sliderContent.addEventListener("transitionend", () => {
-       
-        isMoving = false;
 
-        if (index === slideItem.length -1) {
-            index = 1;
-            sliderContent.style.transition = "none";
-            sliderContent.style.transform = `translateX(-${getWidthSlide() * index }px)`;
-        }
-
-        if (index === 0) {
-            index = slideItem.length - 2;
-            sliderContent.style.transition = "none";
-            sliderContent.style.transform = `translateX(-${getWidthSlide() * index }px)`;
-        }
-    });
-    */
+    // ------------------------------
+    // 🔁 INFINITE LOOP
+    // ------------------------------
     sliderContent.addEventListener("transitionend", () => {
         isMoving = false;
-
         const total = slideItem.length;
-        console.log(`index : ${index} total : ${total} view :${slidesPerView}`)
 
         if (index >= total - slidesPerView) {
-            index = slidesPerView;
-            sliderContent.style.transition = "none";
-            sliderContent.style.transform = `translateX(-${getWidthSlide() * index}px)`;
+            resetPosition(); 
         }
 
         if (index < slidesPerView) {
@@ -84,66 +94,63 @@ export const initSlider = () => {
         }
     });
 
+    // ------------------------------
+    // ⏭️ BOTÓN NEXT
+    // ------------------------------
     if (buttonNext) {
         buttonNext.addEventListener("click", () => {
-            if (isMoving) return; 
+            if (isMoving) return;
             isMoving = true;
 
             stopAutoPlay();
             index += slidesPerView;
-            sliderContent.style.transition = "transform .4s ease";
-            sliderContent.style.transform = `translateX(-${getWidthSlide() * index }px)`;
+            sliderContent.style.transition = "transform .7s cubic-bezier(0.83, 0, 0.17, 1)";
+            sliderContent.style.transform = `translateX(-${getWidthSlide() * index}px)`;
             startAutoPlay();
         });
     }
 
+    // ------------------------------
+    // ⏮️ BOTÓN PREV
+    // ------------------------------
     if (buttonPreview) {
         buttonPreview.addEventListener("click", () => {
-            if (isMoving) return; 
+            if (isMoving) return;
             isMoving = true;
 
             stopAutoPlay();
             index -= slidesPerView;
-            sliderContent.style.transition = "transform .4s ease";
-            sliderContent.style.transform = `translateX(-${getWidthSlide() * index }px)`;
+            sliderContent.style.transition = "transform .7s cubic-bezier(0.83, 0, 0.17, 1)";
+            sliderContent.style.transform = `translateX(-${getWidthSlide() * index}px)`;
             startAutoPlay();
         });
     }
 
+    // ------------------------------
+    // ⛔ PAUSAR SI CAMBIA DE PESTAÑA
+    // ------------------------------
     document.addEventListener("visibilitychange", () => {
-        if (document.hidden) {
-            stopAutoPlay();
-        } else {
-            sliderContent.style.transition = "none";
-            sliderContent.style.transform = `translateX(-${getWidthSlide() * index }px)`;
-            startAutoPlay();
-        }
+        if (document.hidden) stopAutoPlay();
+        else startAutoPlay();
     });
 
+    // ------------------------------
+    // 📏 RESIZE — RECREAR TODO
+    // ------------------------------
     window.addEventListener("resize", () => {
         stopAutoPlay();
 
-        // Recalcular slidesPerView según el nuevo viewport
         const newSlidesPerView = window.innerWidth >= 768 ? 3 : 1;
 
-        // Si cambió, hay que reajustar todo
         if (newSlidesPerView !== slidesPerView) {
-            // Actualizar valor
             slidesPerView = newSlidesPerView;
-
-            // Recalcular ancho
-            const width = getWidthSlide();
-
-            // Recalcular index para que quede alineado
-            index = slidesPerView;
-
-            // Quitar transición para evitar saltos visibles
-            sliderContent.style.transition = "none";
-            sliderContent.style.transform = `translateX(-${width * index}px)`;
+            createClones();
+            resetPosition();
+        } else {
+            // solo recalcular posición
+            resetPosition();
         }
 
-        // Reiniciar autoplay
         startAutoPlay();
     });
-
 };
