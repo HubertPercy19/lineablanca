@@ -40,9 +40,11 @@
         h3{
             font-weight: $font-bold;
             margin-bottom: 16px;
+            min-height: 42px;
         }
         p{
             color: $colorTertiary;
+            line-height: 1.75;
         }
     
     }
