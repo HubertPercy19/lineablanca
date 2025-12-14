@@ -59,6 +59,7 @@
         & div{
             display: flex;
             border-radius: 32px;
+            box-shadow: 4px 4px 16px 0px rgba(66, 68, 90, 1);
             overflow: hidden;
             &::before {
                 content: "";

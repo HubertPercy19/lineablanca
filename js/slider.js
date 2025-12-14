@@ -7,7 +7,7 @@ const initSlider = () => {
     let originalSlides = [...document.querySelectorAll('.slides')];
     let slideItem = [];
     let index = slidesPerView;
-    let speed = 3000;
+    let speed = 5000;
     let intervalID = null;
     let isMoving = false;
 

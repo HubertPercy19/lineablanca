@@ -111,10 +111,19 @@
             }
         }
     }
+    img{
+        @include mediaFrom(lg) {
+            min-height: 700px;
+            object-fit: cover;
+        }
+    }
     &__secondary{
+        picture{
+            display: flex;
+        }
         img{
             @include mediaFrom(lg) {
-                min-height: 600px;
+                min-height: 700px;
                 object-fit: cover;
             }
         }
