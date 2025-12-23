@@ -425,8 +425,10 @@
 
 
         <section class="section__content__brands scroll-anim" id="marcas">
-            <h2 class="section__brands__title">Marcas de electrodomésticos con las que trabajamos</h2>
-            <p class="section__brands__text">En AR Técnicos Multimarcas ofrecemos servicio técnico especializado en reparación e instalación de línea blanca en Santiago, Chile. Trabajamos con las principales marcas del mercado, garantizando repuestos de calidad y atención profesional.</p>
+            <div class="section__brands">
+                <h2 class="section__brands__title">Marcas de electrodomésticos con las que trabajamos</h2>
+                <p class="section__brands__text">En AR Técnicos Multimarcas ofrecemos servicio técnico especializado en reparación e instalación de línea blanca en Santiago, Chile. Trabajamos con las principales marcas del mercado, garantizando repuestos de calidad y atención profesional.</p>
+            </div>
             <aside class="section__brands">
                 <ul class="section__brands__list">
                     <li class="section__brands__list__item">
@@ -617,6 +619,50 @@
             </div>
         </section>
 
+        <section class="section__content__contacts scroll-anim" id="contact">
+            <h2 class="section__content__contact__title">CONTACTO</h2>
+            <div class="section__content__contact">
+                <div class="section__content__contact__information">
+                    <div class="section__content__contact__information__text">
+                        <p>¿Necesitas instalar o reparar tus electrodomésticos de línea blanca?</p>
+                        <ul>
+                            <li>Completa nuestro formulario de contacto y un técnico especializado te responderá a la brevedad.</li>
+                            <li>Déjanos tu nombre, correo y un mensaje detallado para ayudarte con un diagnóstico preciso y una solución inmediata.</li>
+                            <li>Tu información es totalmente segura y solo se usará para atender tu solicitud.</li>
+                            <li>Estamos aquí para brindarte una atención confiable y profesional en instalación, mantenimiento y reparación de línea blanca.</li>
+                        </ul>
+                    </div>
+                    <picture>
+                        <img src="./assets/images/contacto.jpg" alt="Formulario de contacto" title="Contacto AR Técnicos Multimarcas" />
+                    </picture>
+                </div>
+                <form action="procesar.php" method="POST">
+                    <div class="section__content__contact__form">
+                        <h3>¿Buscas ayuda?</h3>
+                        <div class="section__content__contact__field">
+                            <label for="nombre">Nombre*</label>
+                            <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre completo" required>
+                        </div>
+                    
+                        <div class="section__content__contact__field">
+                            <label for="email">Email*</label>
+                            <input type="email" name="email" id="email" placeholder="Ingresa tu email" required>
+                        </div>
+
+                        <div class="section__content__contact__field">
+                            <label for="mensaje">Mensaje*</label>
+                            <textarea   textarea name="mensaje" id="mensaje" placeholder="Desribe tu requerimiento" rows="3" required></textarea>
+                        </div>
+                        
+                        <div class="section__content__contact__field__button">
+                            <p>Nunca recopilaremos información sobre usted sin su consentimiento explícito.</p>
+                            <button type="submit">Enviar</button>
+                        </div>  
+                    </div>
+                </form>
+            </div>
+            
+        </section>
 
         <section class="section__content__preguntas scroll-anim" id="preguntas">
             <h2>Preguntas frecuentes</h2>

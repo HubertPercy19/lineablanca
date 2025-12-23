@@ -47,8 +47,6 @@
         text-align: center;
         line-height: 1.75;
         @include mediaFrom(lg) {
-            margin: 0 auto;
-            max-width: 80%;
             font-size: 18px;
         }
     }

@@ -157,7 +157,7 @@ main{
             max-width: 1248px;
         }
         &:first-child,
-        &:nth-child(12){
+        &:nth-child(13){
             padding: 0;
             @include mediaFrom(lg) {
                 max-width: 100%;
