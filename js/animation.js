@@ -3,7 +3,6 @@ const scrollAnimationHeader = () => {
 
     window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-        console.log('scroll')
         header.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
