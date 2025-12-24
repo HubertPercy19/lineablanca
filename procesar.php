@@ -7,19 +7,20 @@ if (!empty($_POST['nombre']) && !empty($_POST['email']) && !empty($_POST['mensaj
     $email   = trim($_POST['email']);
     $mensaje = trim($_POST['mensaje']);
 
-    // Consulta adaptada a TU tabla "contacto"
-    $stmt = $conn->prepare("INSERT INTO contacto (nombre, email, mensaje) VALUES (?, ?, ?)");
+    // Consulta usando la variable correcta: $conexion
+    $stmt = $conexion->prepare("INSERT INTO contacto (nombre, email, mensaje) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $nombre, $email, $mensaje);
 
     if ($stmt->execute()) {
-        header("Location: index.html");
+        // redirigir al home correcto
+        header("Location: https://artecnicosmultimarcas.com/");
         exit();
     } else {
         echo "❌ Error al guardar: " . $stmt->error;
     }
 
     $stmt->close();
-    $conn->close();
+    $conexion->close();
 } else {
     echo "❌ Faltan datos en el formulario.";
 }
